@@ -149,8 +149,6 @@ namespace laba3
                 try
                 {
                     conn.Open();
-                    //SELECT * FROM public."Student" WHERE st_firstname = 'dsd' AND st_midname = 'dsd' AND st_lastname = 'dsd';
-                    //UPDATE public."Student" SET st_firstname =?, st_midname =?, st_lastname =? WHERE<condition>;
                     sql = $@"UPDATE public.""Student"" SET st_firstname = '{txtFirstname.Text}', st_midname = '{txtMidname.Text}', st_lastname = '{txtLastname.Text}', st_curse = '{txtCurse.Text}', st_major = '{txtMajor.Text}'  WHERE st_id = {int.Parse(dgvData.Rows[rowIndex].Cells["st_id"].Value.ToString())}";
                     cmd = new NpgsqlCommand(sql, conn);
                     result = (int)cmd.ExecuteNonQuery();
